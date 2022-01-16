@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末專案</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css">
+        .question {
+            width: 100%;
+            text-align: justify;
+            height: 300px;
+            border-color: gray;
+            color: gray;
+            border-style: solid;
+            float: left;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+
+        .answer {
+            width: 50%;
+            text-align: justify;
+            height: 200px;
+            border-style: solid;
+            float: left;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<script>
+    let score = 0, subject;
+    var num;
+    var random = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    var random2 =[0,1,2,3,4,5,6,7,8,9]
+    function start() {
+        document.getElementById('summit').addEventListener('click', sum, false);
+    }
+    function sum() {
+        let checkboxes = document.querySelectorAll('input[name=RQ_ck01]');
+        if (checkboxes[num].checked == true) {
+            score++;
+            document.getElementById('score').innerHTML = "分數:" + score;
+            window.alert("正確");
+        }
+        else {
+            window.alert("錯誤");
+        }
+        document.getElementById('summit').disabled=true;
+        document.getElementById("link_ans_url").style = "display:inline";
+    }
+    function load(id) {
+        window.alert("目前科目為" + id);
+        subject = id;
+        document.getElementById("summit").disabled = false;
+        document.getElementById("link_ans_url").style = "display:inline";
+        document.getElementById("A").innerHTML = 'A';
+        document.getElementById("B").innerHTML = 'B';
+        document.getElementById("C").innerHTML = 'C';
+        document.getElementById("D").innerHTML = 'D';
+
+    }
+    function randrom(i) {
+        num=Math.floor(Math.random() * 4);
+        for (let m = 0; m < i; m++) {
+            let a = Math.floor(Math.random() * 20);
+            let b = Math.floor(Math.random() * 20);
+            let tmp = random[a];
+            random[a] = random[b];
+            random[b] = tmp;
+        }
+        document.getElementById("link_ans_url").style="display:none";
+    }
+    function randrom2(i) {
+        num=Math.floor(Math.random() * 4);
+        for (let m = 0; m < i; m++) {
+            let a = Math.floor(Math.random() * 10);
+            let b = Math.floor(Math.random() * 10);
+            let tmp = random2[a];
+            random2[a] = random2[b];
+            random2[b] = tmp;
+        }
+        document.getElementById("link_ans_url").style="display:none";
+    }
+    window.addEventListener("load", start, false);
+
+</script>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Stackflow 答題大賽</h1>
+        <h2 id="question" class="question">請選擇科目<h2>
+                <p id="answer0" class="answer" style="border-color: #dc3545;color:#dc3545;">請選擇科目</p>
+                <p id="answer1" class="answer" style="border-color: #ffc107;color:#ffc107;">請選擇科目</p>
+                <p id="answer2" class="answer" style="border-color:#007bff;color:#007bff;">請選擇科目</p>
+                <p id="answer3" class="answer" style="border-color:#28a745;color:#28a745;">請選擇科目</p>
+                <div class="row row-cols-2 mb-4">
+                    <div class="col border p-3">
+                        <input name="RQ_ck01" id="RQ_ck01_01" type="radio" value="1" />
+                        <label id="A" for="RQ_ck01_0" class="text-danger">請選擇科目</label>
+                    </div>
+                    <div class="col border p-3">
+                        <input name="RQ_ck01" id="RQ_ck01_02" type="radio" value="2" />
+                        <label id="B" for="RQ_ck01_1" class="text-warning">請選擇科目</label>
+                    </div>
+                    <div class="col border p-3">
+                        <input name="RQ_ck01" id="RQ_ck01_03" type="radio" value="3" />
+                        <label id="C" for="RQ_ck01_2" class="text-primary">請選擇科目</label>
+                    </div>
+                    <div class="col border p-3">
+                        <input name="RQ_ck01" id="RQ_ck01_04" type="radio" value="4" />
+                        <label id="D" for="RQ_ck01_3" class="text-success">請選擇科目</label>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="summit" class="btn btn-primary" disabled>提交答案</button>
+                    <a id="link_ans_url" class="btn btn-primary" role="button" target="_blank"
+                        style="display:none">查看相關貼文</a>
+                    <span id='score' class='text-primary' style="float: right;">分數:0<span>
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" id='algorithm' onclick='load(id)' class="btn btn-secondary">algorithm</button>
+                    <button type="button" id='Cpp' onclick='load(id)' class="btn btn-secondary">Cpp</button>
+                    <button type="button" id='OS' onclick='load(id)' class="btn btn-secondary">OS</button>
+                    <button type="button" id='verilog' onclick='load(id)' class="btn btn-secondary">verilog</button>
+                    <button type="button" id='dl' onclick='load(id)' class="btn btn-secondary">deep-learning</button>
+                </div>
+    </div>
+</body>
+<script type="application/javascript">
+
+    $("#dl").click(function () {
+        randrom2(50);
+        $.ajax({
+            url: "dl.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data2) {
+                document.getElementById("question").innerHTML = data2[random2[num]]["question"];
+                document.getElementById("link_ans_url").href=data2[random2[num]]['website'];
+                for(let i=0;i<4;i++){
+                        document.getElementById("answer"+i).innerHTML=data2[random2[i]]["answer"];
+                }
+            }
+        });
+    });
+
+</script>
+<script type="application/javascript">
+
+    $("#algorithm").click(function () {
+        randrom(50);
+        $.ajax({
+            url: "algorithm.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data2) {
+                document.getElementById("question").innerHTML = data2[random[num]]["question"];
+                document.getElementById("link_ans_url").href=data2[random[num]]['website'];
+                for(let i=0;i<4;i++){
+                        document.getElementById("answer"+i).innerHTML=data2[random[i]]["answer"];
+                }
+            }
+        });
+    });
+
+</script>
+<script type="application/javascript">
+
+    $("#OS").click(function () {
+        randrom(100);
+        $.ajax({
+            url: "OS.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                document.getElementById("question").innerHTML = data[random[num]]["question"];
+                document.getElementById("link_ans_url").href=data[random[num]]['website'];
+                for(let i=0;i<4;i++){
+                        document.getElementById("answer"+i).innerHTML=data[random[i]]["answer"];
+                }
+                
+            }
+        });
+    });
+
+</script>
+
+<script type="application/javascript">
+
+    $("#Cpp").click(function () {
+        randrom2(100);
+        $.ajax({
+            url: "Cpp.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                document.getElementById("question").innerHTML = data[random2[num]]["question"];
+                document.getElementById("link_ans_url").href=data[random2[num]]['website'];
+                for(let i=0;i<4;i++){
+                        document.getElementById("answer"+i).innerHTML=data[random2[i]]["answer"];
+                }
+                
+            }
+        });
+    });
+
+</script>
+<script type="application/javascript">
+
+    $("#verilog").click(function () {
+        randrom2(100);
+        $.ajax({
+            url: "verilog.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                document.getElementById("question").innerHTML = data[random2[num]]["question"];
+                document.getElementById("link_ans_url").href=data[random2[num]]['website'];
+                for(let i=0;i<4;i++){
+                        document.getElementById("answer"+i).innerHTML=data[random2[i]]["answer"];
+                }
+                
+            }
+        });
+    });
+
+</script>
+
+</html>

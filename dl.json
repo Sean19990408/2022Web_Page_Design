@@ -1,0 +1,72 @@
+[
+ {
+  "number": 1,
+  "title": "Difference between Fasttext .vec and .bin file",
+  "question": "I recently downloaded fasttext pretrained model for english. I got two files:<br> 1.wiki.en.vec<br> 2.wiki.en.bin <br>I am not sure what is the difference between the two files?                                                                                                 2.wiki.en.bin<br>                                                                                                      I am not sure what is the difference between the two files?",
+  "answer": "model.vec is a text file containing the word vectors, one per line.   <br>   model.bin is a binary file containing the parameters of the model along with the dictionary and all hyper parameters.",
+  "website": "https://stackoverflow.com/questions/47118678/difference-between-fasttext-vec-and-bin-file"
+ },
+ {
+  "number": 2,
+  "title": "What is the difference between .pt, .pth and .pwf extentions in PyTorch?",
+  "question": "I have seen in some code examples, that people use .pwf as model file saving format. But in PyTorch documentation .pt and .pth are recommended. I used .pwf and worked fine for small 1->16->16 convolutional network.<br> My question is what is the difference between these formats? Why is .pwf extension not even recommended in PyTorch documentation and why do people still use it?",
+  "answer": "There are no differences between the extensions that were listed: .pt, .pth, .pwf.  <br>     Having said that, it is however not recommended to use .pth extension when checkpointing models because it collides with Python path (.pth) configuration files. ",
+  "website": "https://stackoverflow.com/questions/59095824/what-is-the-difference-between-pt-pth-and-pwf-extentions-in-pytorch"
+ },
+ {
+  "number": 3,
+  "title": "When to use in-place layers in Caffe?",
+  "question": "By setting the bottom and the top blob to be the same we can tell Caffe to do \"in-place\" computation to preserve memory consumption.<br>  Currently I know I can safely use in-place \"BatchNorm\", \"Scale\" and \"ReLU\" layers (please let me know if I'm wrong). While it seems to have some issues for other layers (this issue seems to be an example).<br> When to use in-place layers in Caffe?<br>\nHow does it work with back-propagation?",
+  "answer": "In-place layers don't usually work \"out of the box\".For some layers, it is quite trivial (\"ReLU\" and other neuron activation layers).   <br>   However, for others it requires special handling in code. For example, the implementation of \"PReLU\" layer has specific cache bottom_memory_ member variable that stores information needed for backprop.You can see similar code for other layers that specifically test for if (top[0] == bottom[0]) to see if the layer is used in an \"in-place\" case.",
+  "website": "https://stackoverflow.com/questions/38474899/when-to-use-in-place-layers-in-caffe"
+ },
+ {
+  "number": 4,
+  "title": "Image preprocessing in deep learning",
+  "question": "I am experimenting with deep learning on images. I have about ~4000 images from different cameras with different light conditions, image resolutions and view angle.<br> My question is: What kind of image preprocessing would be helpful for improving object detection? (For example: contrast/color normalization, denoising, etc.)                                                                                                                       ",
+  "answer": "For pre-processing of images before feeding them into the Neural Networks. It is better to make the data Zero Centred. Then try out normalization technique. It certainly will increase the accuracy as the data is scaled in a range than arbitrarily large values or too small values.",
+  "website": "https://stackoverflow.com/questions/41428868/image-preprocessing-in-deep-learning"
+ },
+ {
+  "number": 5,
+  "title": "Parallelization strategies for deep learning",
+  "question": "What strategies and forms of parallelization are feasible and available for training and serving a neural network?",
+  "answer": "In general, there are two strategies of parallelizing model training: data parallelism and model parallelism.",
+  "website": "https://stackoverflow.com/questions/62759940/parallelization-strategies-for-deep-learning"
+ },
+ {
+  "number": 6,
+  "title": "How can a tree be encoded as input to a neural network?",
+  "question": "I have a tree, specifically a parse tree with tags at the nodes and strings/words at the leaves. I want to pass this tree as input into a neural network all the while preserving its structure.<br>Current approach Assume we have some dictionary of words w1,w2.....wn Encode the words that appear in the parse tree as n dimensional binary vectors with a 1 showing up in the ith spot whenever the word in the parse tree is wi<br>Now how about the tree structure? There are about 2^n possible parent tags for n words that appear at the leaves So we cant set a max length of input words and then just brute force enumerate all trees.<br>Right now all i can think of is to approximate the tree by choosing the direct parent of a leaf. This can be represented by a binary vector as well with dimension equal to number of different types of tags - on the order of ~ 100 i suppose. My input is then two dimensional. The first is just the vector representation of a word and the second is the vector representation of its parent tag<br>Except this will lose a lot of the structure in the sentence. Is there a standard/better way of solving this problem?",
+  "answer": "You need a recursive neural network. It learns representation of each leaf, and then goes up through the parents to finally construct the representation of the whole structure.",
+  "website": "https://stackoverflow.com/questions/26022866/how-can-a-tree-be-encoded-as-input-to-a-neural-network"
+ },
+ {
+  "number": 7,
+  "title": "What is FLOPS in field of deep learning?",
+  "question": "What is FLOPS in field of deep learning? Why we don't use the term just FLO?",
+  "answer": "FLOPS = Floating point operations per second <br>FLOPs = Floating point operations <br>FLOPS is a unit of speed. FLOPs is a unit of amount.",
+  "website": "https://stackoverflow.com/questions/58498651/what-is-flops-in-field-of-deep-learning"
+ },
+ {
+  "number": 8,
+  "title": "Epoch vs Iteration when training neural networks",
+  "question": "What is the difference between epoch and iteration when training a multi-layer perceptron?",
+  "answer": "one epoch = one forward pass and one backward pass of all the training examples <br> batch size = the number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.  <br>  number of iterations = number of passes, each pass using [batch size] number of examples. To be clear, one pass = one forward pass + one backward pass (we do not count the forward pass and backward pass as two different passes).<br> For example: if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.",
+  "website": "https://stackoverflow.com/questions/4752626/epoch-vs-iteration-when-training-neural-networks"
+ },
+ {
+  "number": 9,
+  "title": "How to interpret loss and accuracy for a machine learning model ",
+  "question": "When I trained my neural network with Theano or Tensorflow, they will report a variable called \"loss\" per epoch.<br>How should I interpret this variable? Higher loss is better or worse, or what does it mean for the final performance (accuracy) of my neural network?",
+  "answer": "The lower the loss, the better a model (unless the model has over-fitted to the training data). The loss is calculated on training and validation and its interperation is how well the model is doing for these two sets. Unlike accuracy, loss is not a percentage. It is a summation of the errors made for each example in training or validation sets.",
+  "website": "https://stackoverflow.com/questions/34518656/how-to-interpret-loss-and-accuracy-for-a-machine-learning-modelIf"
+ },
+ {
+  "number": 10,
+  "title": "Is there a common format for neural networks",
+  "question": "Different teams use different libraries to train and run neural networks (caffe, torch, theano...). This makes sharing difficult: each library has its own format to store networks and you have to install a new library each time you want to test other teams' work.<br>I am looking for solutions to make this less tedious: - Is there a preferred (shared?) format to store neural networks? - Is there a service or library that can help handle different types of networks / or transform one type into another?<br>Thank you!",
+  "answer": "ONNX is an open-source AI ecosystem that provides a common format for neural networks.  <br>  It helps converting a deep learning model to another.Generally, model conversion takes weeks/months without ONNX:",
+  "website": "https://stackoverflow.com/questions/33828959/is-there-a-common-format-for-neural-networks"
+ }
+]

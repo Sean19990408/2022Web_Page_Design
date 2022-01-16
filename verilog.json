@@ -1,0 +1,72 @@
+[
+ {
+  "number": 1,
+  "title": "Using wire or reg with input or output in Verilog",
+  "question": "When you declare something as input or output, how do you know if you have to also declare it as a reg or a wire?",
+  "answer": "A Wire will create a wire output which can only be assigned any input by using assign statement as assign statement creates a port/pin connection and wire can be joined to the port/pin <br> A reg will create a register(D FLIP FLOP ) which gets or recieve inputs on basis of sensitivity list either it can be clock (rising or falling ) or combinational edge .",
+  "website": "https://stackoverflow.com/questions/5360508/using-wire-or-reg-with-input-or-output-in-verilog"
+ },
+ {
+  "number": 2,
+  "title": "What is the difference between == and === in Verilog?",
+  "question": "What is the difference between:<br><br>if (dataoutput[7:0] == 8'bx) begin<br>and<br>if (dataoutput[7:0] === 8'bx) begin ",
+  "answer": "In Verilog:<br>== tests logical equality (tests for 1 and 0, all other will result in x)<br>=== tests 4-state logical equality (tests for 1, 0, z and x)",
+  "website": "https://stackoverflow.com/questions/5927615/what-is-the-difference-between-and-in-verilog"
+ },
+ {
+  "number": 3,
+  "title": "What is the difference between reg and wire in a verilog module",
+  "question": "What is the difference between a reg and a wire? When are we supposed to use reg and when are we supposed to use wire in a verilog module. I have also noticed sometimes that a output is declared again as a reg. E.g reg Q in a D flip flop. I have read this somewhere - \"The target output of procedural assignment statements must be of reg data type.\" What are procedural assignment statements? I have throughly googled this but was not able to find a clear explanation.",
+  "answer": "wire elements must be continuously driven by something, and cannot store a value. Henceforth, they are assigned values using continuous assignment statements.<br><br>reg can be used to create registers in procedural blocks. Thus, it can store some value.",
+  "website": "https://stackoverflow.com/questions/33459048/what-is-the-difference-between-reg-and-wire-in-a-verilog-module"
+ },
+ {
+  "number": 4,
+  "title": "' << ' operator in verilog",
+  "question": "' << ' operator in verilog",
+  "answer": "<< is a binary shift",
+  "website": "https://stackoverflow.com/questions/17691265/operator-in-verilog"
+ },
+ {
+  "number": 5,
+  "title": "What's the difference between $stop and $finish in Verilog?",
+  "question": "I'm using a GUI simulator, and they both seem to do the same thing.",
+  "answer": "$finish exits the simulation and gives control back to the operating system.<br><br>$stop suspends the simulation and puts a simulator in an interactive mode.",
+  "website": "https://stackoverflow.com/questions/2395132/whats-the-difference-between-stop-and-finish-in-verilog"
+ },
+ {
+  "number": 6,
+  "title": "Difference between \"parameter\" and \"localparam\"",
+  "question": "I'm writing a project with Verilog and want to use parameter to define some parameter in my module. But when I read in some source code, localparam sometimes is used instead of parameter.<br>What's difference between them?<br>",
+  "answer": "Verilog HDL local parameters are identical to parameters except that they cannot directly be modified by defparam statements or module instance parameter value assignments. Local parameters can be assigned constant expressions containing parameters, which can be modified with defparam statements or module instance parameter value assignments.",
+  "website": "https://stackoverflow.com/questions/30288783/difference-between-parameter-and-localparam"
+ },
+ {
+  "number": 7,
+  "title": "Why is Verilog not considered a programming language?",
+  "question": "In class the professor said that students shouldn't say that they learned to program in Verilog. He said something like Verilog isn't used to program it's used to design. So how is Verilog different from other programming languages?",
+  "answer": "Verilog is a hardware definition language. Programming languages are generally understood to be languages for telling existing hardware what to do, not for reconfiguring said hardware.",
+  "website": "https://stackoverflow.com/questions/5121679/why-is-verilog-not-considered-a-programming-language"
+ },
+ {
+  "number": 8,
+  "title": "What is the difference between single (&) and double (&&) ampersand binary operators?",
+  "question": "In IEEE 1800-2005 or later, what is the difference between & and && binary operators? Are they equivalent?",
+  "answer": "&& is a boolean operator which we call \"logical AND\". This doesn't mean that it must operate on boolean operands, but that its return type is boolean. <br\/> & is a bitwise AND and reduction AND operators. Whether it is executed as bitwise or reduction is determined by the context:",
+  "website": "https://stackoverflow.com/questions/17327680/what-is-the-difference-between-single-and-double-ampersand-binary-opera"
+ },
+ {
+  "number": 9,
+  "title": "Why are nonblocking assignments not allowed in Verilog functions?",
+  "question": "I have read that use of nonblocking assignments is not allowed in Verilog functions. Can anyone suggest a plausible explanation for this?",
+  "answer": "The IEEE Std for Verilog (1364-2001), section \"10.3.4 Function rules\" states:<br>A function shall not have any nonblocking assignments.",
+  "website": "https://stackoverflow.com/questions/12035942/why-are-nonblocking-assignments-not-allowed-in-verilog-functions"
+ },
+ {
+  "number": 10,
+  "title": "Difference between 1 and 1'b1 in Verilog",
+  "question": "What is the difference between just giving 1 and giving 1'b1 in verilog code?",
+  "answer": "The 1 is 32 bits wide, thus is the equivalent of 32'b00000000_00000000_00000000_00000001<br><br>The 1'b1 is one bit wide.",
+  "website": "https://stackoverflow.com/questions/59099852/difference-between-1-and-1b1-in-verilog"
+ }
+]

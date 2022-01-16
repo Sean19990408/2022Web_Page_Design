@@ -1,0 +1,72 @@
+[
+ {
+  "number": 1,
+  "title": "What is the difference between #include <filename> and #include \"filename\"?",
+  "question": "In the C and C++ programming languages, what is the difference between using angle brackets and using quotes in an include statement, as follows?<br> 1.#include <filename> <br>  2.#include \"filename\"",
+  "answer": "For #include <filename> the preprocessor searches in an implementation dependent manner, normally in search directories pre-designated by the compiler IDE. This method is normally used to include standard library header files.<br\/>For #include \"filename\" the preprocessor searches first in the same directory as the file containing the directive, and then follows the search path used for the #include <filename> form. This method is normally used to include programmer-defined header files.",
+  "website": "https://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename"
+ },
+ {
+  "number": 2,
+  "title": "What is the \"-->\" operator in C\/C++?",
+  "question": "What is the \"-->\" operator in C\/C++?",
+  "answer": "-->' is not an operator. It is in fact two separate operators, -- and >.<br>The conditional's code decrements x, while returning x's original (not decremented) value, and then compares the original value with 0 using the > operator.D3<br><br>== tests logical equality (tests for 1 and 0, all other will result in x)<br>=== tests 4-state logical equality (tests for 1, 0, z and x)",
+  "website": "https://stackoverflow.com/questions/1642028/what-is-the-operator-in-c-c"
+ },
+ {
+  "number": 3,
+  "title": "What is object slicing?",
+  "question": "Someone mentioned it in the IRC as the slicing problem.",
+  "answer": "Slicing is where you assign an object of a derived class to an instance of a base class, thereby losing part of the information - some of it is sliced away.",
+  "website": "https://stackoverflow.com/questions/274626/what-is-object-slicing"
+ },
+ {
+  "number": 4,
+  "title": "What does the explicit keyword mean?",
+  "question": "What does the explicit keyword mean in C++?",
+  "answer": "The compiler is allowed to make one implicit conversion to resolve the parameters to a function. What this means is that the compiler can use constructors callable with a single parameter to convert from one type to another in order to get the right type for a parameter.",
+  "website": "https://stackoverflow.com/questions/121162/what-does-the-explicit-keyword-mean"
+ },
+ {
+  "number": 5,
+  "title": "When should you use a class vs a struct in C++?",
+  "question": "In what scenarios is it better to use a struct vs a class in C++?",
+  "answer": "The differences between a class and a struct in C++ is:<br><br>struct members and base classes/structs are public by default.<br>class members and base classes/struts are private by default.<br><br>$stop suspends the simulation and puts a simulator in an interactive mode.",
+  "website": "https://stackoverflow.com/questions/54585/when-should-you-use-a-class-vs-a-struct-in-c"
+ },
+ {
+  "number": 6,
+  "title": "Static linking vs dynamic linking",
+  "question": "Are there any compelling performance reasons to choose static linking over dynamic linking or vice versa in certain situations? I've heard or read the following, but I don't know enough on the subject to vouch for its veracity.<br>1) The difference in runtime performance between static linking and dynamic linking is usually negligible.<br>                                                                                  2) (1) is not true if using a profiling compiler that uses profile data to optimize program hotpaths because with static linking, the compiler can optimize both your code and the library code. With dynamic linking only your code can be optimized. If most of the time is spent running library code, this can make a big difference. Otherwise, (1) still applies.",
+  "answer": "\"Strict aliasing is an assumption, made by the C (or C++) compiler, that dereferencing pointers to objects of different types will never refer to the same memory location (i.e. alias each other.)\"",
+  "website": "https://stackoverflow.com/questions/98650/what-is-the-strict-aliasing-rule"
+ },
+ {
+  "number": 7,
+  "title": "Why use pointers?",
+  "question": "I know this is a really basic question, but I've just started with some basic C++ programming after coding a few projects with high-level languages.<br> Basically I have three questions:<br> 1.Why use pointers over normal variables?<br> 2.When and where should I use pointers?<br>3.How do you use pointers with arrays?",
+  "answer": "Pointers are one way of getting an indirect reference to another variable. Instead of holding the value of a variable, they tell you its address. This is particularly useful when dealing with arrays, since using a pointer to the first element in an array (its address) you can quickly find the next element by incrementing the pointer (to the next address location).",
+  "website": "https://stackoverflow.com/questions/162941/why-use-pointers"
+ },
+ {
+  "number": 8,
+  "title": "Are global variables bad? ",
+  "question": "In C/C++, are global variables as bad as my professor thinks they are?",
+  "answer": "The problem with global variables is that since every function has access to these, it becomes increasingly hard to figure out which functions actually read and write these variables.",
+  "website": "https://stackoverflow.com/questions/484635/are-global-variables-bad"
+ },
+ {
+  "number": 9,
+  "title": "Are memory leaks ever ok? ",
+  "question": "Is it ever acceptable to have a memory leak in your C or C++ application?<br>What if you allocate some memory and use it until the very last line of code in your application (for example, a global object's destructor)? As long as the memory consumption doesn't grow over time, is it OK to trust the OS to free your memory for you when your application terminates (on Windows, Mac, and Linux)? Would you even consider this a real memory leak if the memory was being used continuously until it was freed by the OS.<br>                                           What if a third party library forced this situation on you? Would refuse to use that third party library no matter how great it otherwise might be?<br> I only see one practical disadvantage, and that is that these benign leaks will show up with memory leak detection tools as false positives.",
+  "answer": "It really depends on how much data the program is working on, how often the program is run and whether or not it is running constantly.<br><br>If I have a quick program that reads a small amount of data makes a calculation and exits, a small memory leak will never be noticed. Because the program is not running for very long and only uses a small amount of memory, the leak will be small and freed when the program exists.<br><br>On the other hand if I have a program that processes millions of records and runs for a long time, a small memory leak might bring down the machine given enough time.",
+  "website": "https://stackoverflow.com/questions/273209/are-memory-leaks-ever-ok"
+ },
+ {
+  "number": 10,
+  "title": "Difference between a virtual function and a pure virtual function",
+  "question": "What is the difference between a pure virtual function and a virtual function?",
+  "answer": "A virtual function makes its class a polymorphic base class. Derived classes can override virtual functions. Virtual functions called through base class pointers/references will be resolved at run-time. <br> A pure virtual function is a virtual function whose declaration ends in =0:",
+  "website": "https://stackoverflow.com/questions/2652198/difference-between-a-virtual-function-and-a-pure-virtual-function"
+ }
+]

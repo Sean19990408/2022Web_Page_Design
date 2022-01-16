@@ -1,0 +1,142 @@
+[
+ {
+  "number": 1,
+  "title": "What is the difference between the operating system and the kernel?",
+  "question": "I do not understand the difference between operating system and kernel. Can someone please explain it?",
+  "answer": "The kernel is part of the operating system and closer to the hardware it provides low level services like:<br>device driver<br>process management<br>memory management<br>system calls",
+  "website": "https://stackoverflow.com/questions/3315730/what-is-the-difference-between-the-operating-system-and-the-kernel"
+ },
+ {
+  "number": 2,
+  "title": "What's the difference between virtual memory and swap space?",
+  "question": "Can any one please make me clear what is the difference between virtual memory and swap space?<br> And why do we say that for a 32-bit machine the maximum virtual memory accessible is 4 GB only?",
+  "answer": "There's an excellent explantation of virtual memory over on superuser.<br>Simply put, virtual memory is a combination of RAM and disk space that running processes can use. <br>Swap space is the portion of virtual memory that is on the hard disk, used when RAM is full. <br>As for why 32bit CPU is limited to 4gb virtual memory, it's addressed well here:",
+  "website": "https://stackoverflow.com/questions/4970421/whats-the-difference-between-virtual-memory-and-swap-space"
+ },
+ {
+  "number": 3,
+  "title": "Is memory allocation a system call?",
+  "question": "Is memory allocation a system call? For example, malloc and new. Is the heap shared by different processes and managed by the OS. What about private heap? If memory allocation in the heap is managed by the OS, how expensive is this?<br> I would also like to have some link to places where I can read more about this topic.",
+  "answer": "In general, malloc and new do not perform a system call at each invocation. However, they use a lower-level mechanism to allocate large pages of memory. On Windows, the lower mechanism is VirtualAlloc(). I believe on POSIX systems, this is somewhat equivalent to mmap(). Both of these perform a system call to allocate memory to the process at the OS level. Subsequent allocations will use smaller parts of those large pages without incurring a system call.",
+  "website": "https://stackoverflow.com/questions/6530355/is-memory-allocation-a-system-call"
+ },
+ {
+  "number": 4,
+  "title": "job, task and process, what's the difference",
+  "question": "What is the difference between these concepts?",
+  "answer": "A process is an instance of a program that is being executed, and is the basic unit of resources: a process consists of or owns its image, execution context, memory, files, etc.; etymologically a process is the steps done by a processor. <br>A job often means a set of processes, while a task may mean a process, a thread, a process or thread, or, distinctly, a unit of work done by a process or thread.",
+  "website": "https://stackoverflow.com/questions/3073948/job-task-and-process-whats-the-difference"
+ },
+ {
+  "number": 5,
+  "title": "What is the difference between DMA and memory-mapped IO?",
+  "question": "What is the difference between DMA and memory-mapped IO? They both look similar to me.",
+  "answer": "Memory-mapped I/O allows the CPU to control hardware by reading and writing specific memory addresses. Usually, this would be used for low-bandwidth operations such as changing control bits. <br> DMA allows hardware to directly read and write memory without involving the CPU. Usually, this would be used for high-bandwidth operations such as disk I/O or camera video input.",
+  "website": "https://stackoverflow.com/questions/3851677/what-is-the-difference-between-dma-and-memory-mapped-io"
+ },
+ {
+  "number": 6,
+  "title": "Why do we need virtual memory?",
+  "question": "So my understanding is that every process has its own virtual memory space ranging from 0x0 to 0xFF....F. These virtual addresses correspond to addresses in physical memory (RAM). Why is this level of abstraction helpful? Why not just use the direct addresses?<br>I understand why paging is beneficial, but not virtual memory.",
+  "answer": "Short answer: Program code and data required for execution of a process must reside in main memory to be executed, but main memory may not be large enough to accommodate the needs of an entire process.<br>Two proposals<br>(1) Using a very large main memory to alleviate any need for storage allocation: it's not feasible due to very high cost.<br>(2) Virtual memory: It allows processes that may not be entirely in the memory to execute by means of automatic storage allocation upon request. The term virtual memory refers to the abstraction of separating LOGICAL memory--memory as seen by the process--from PHYSICAL memory--memory as seen by the processor. Because of this separation, the programmer needs to be aware of only the logical memory space while the operating system maintains two or more levels of physical memory space.",
+  "website": "https://stackoverflow.com/questions/19349572/why-do-we-need-virtual-memory"
+ },
+ {
+  "number": 7,
+  "title": "what is a kernel thread  ",
+  "question": "i am just started coding of device driver and new to threading, went through many documents for getting an idea about threads. i still have some doubts.<br>1.what is a kernel thread ?.<br>2.how it differs from user thread ?.<br>3.what is the relationship between the two threads ?.<br>4.how can i implement kernel threads ?.<br>5.where can i see the output of the implementation?.",
+  "answer": "1.A kernel thread is a task_struct with no userspace components. <br> 2.Besides the lack of userspace, it has different ancestors (kthreadd kernel thread instead of the init process) and is created by a kernel-only API instead of sequences of clone from fork/exec system calls.<br>3.Two kernel threads have kthreadd as a parent. Apart from that, kernel threads enjoy the same \"independence\" one from another as userspace processes.<br>4.Use the kthread_run function\/macro from the kthread.h header You will most probably have to write a kernel module in order to call this function, so you should take a look a the Linux Device Drivers<br>5.If you are referring to the text output of your implementation (via printk calls), you can see this output in the kernel log using the dmesg command.",
+  "website": "https://stackoverflow.com/questions/9481055/what-is-a-kernel-thread"
+ },
+ {
+  "number": 8,
+  "title": "What is the difference between kernel threads and user threads?",
+  "question": "What is the difference between kernel threads and user threads? Is it that kernel thread are scheduled and executed in kernel mode? What are techniques used for creating kernel threads?<br>Is it that user thread is scheduled, executed in user mode? Is it that Kernel does not participate in executing/scheduling user threads? When interrupts occur in executing user thread then who handles it?<br>Whenever, thread is created a TCB is created for each. now in case of user level threads Is it that this TCB is created in user's address space ?<br>In case of switching between two user level threads who handles the context switching ?<br>",
+  "answer": "Kernel threads are privileged and can access things off-limits to user mode threads. Take a look at \"Ring (Computer Security)\" on Wikipedia.On Windows, user mode corresponds to Ring 3, while kernel mode corresponds to Ring 0.",
+  "website": "https://stackoverflow.com/questions/4985182/what-is-the-difference-between-kernel-threads-and-user-threads/15306245#15306245"
+ },
+ {
+  "number": 9,
+  "title": "What is the relationship between threads (in a Java or a C++ program) and number of cores in the CPU?",
+  "question": "Can someone shed some light on it?<br>An i7 processor can run 8 threads but I am pretty sure we can create more than 8 threads in a JAVA or C++ program(not sure though). I have an i5 processor and while studying concurrency I have created 10 threads for assignments. I am just trying to understand how Core rating of CPU is related to threads.",
+  "answer": "The thread you are refering to is called a software thread; and you can create as many software threads as you need, as long as your operating system allows it. Each software thread, or code snippet, can run concurrently from the others.<br>For each core, there is at least one hardware thread to which the operating system can assign a software thread. If you have 8 cores, for example, then you have a hardware thread pool of capacity 8. You can map tens or hundreds of software threads to this 8-slot pool, where only 8 threads are actually running on hardware at the same time, i.e. in parallel.",
+  "website": "https://stackoverflow.com/questions/18264592/what-is-the-relationship-between-threads-in-a-java-or-a-c-program-and-number"
+ },
+ {
+  "number": 10,
+  "title": "Difference between binary semaphore and mutex",
+  "question": "Is there any difference between a binary semaphore and mutex or are they essentially the same?",
+  "answer": "A mutex can be released only by the thread that had acquired it.<br> A binary semaphore can be signaled by any thread (or process).",
+  "website": "https://stackoverflow.com/questions/62814/difference-between-binary-semaphore-and-mutex"
+ },
+ {
+  "number": 11,
+  "title": "What is the difference between a stack overflow and buffer overflow?",
+  "question": "What is the difference between a stack overflow and a buffer overflow in programming?",
+  "answer": "Stack overflow refers specifically to the case when the execution stack grows beyond the memory that is reserved for it. For example, if you call a function which recursively calls itself without termination, you will cause a stack overflow as each function call creates a new stack frame and the stack will eventually consume more memory than is reserved for it.<br>Buffer overflow refers to any case in which a program writes beyond the end of the memory allocated for any buffer (including on the heap, not just on the stack). For example, if you write past the end of an array allocated from the heap, you've caused a buffer overflow.",
+  "website": "https://stackoverflow.com/questions/1120575/what-is-the-difference-between-a-stack-overflow-and-buffer-overflow"
+ },
+ {
+  "number": 12,
+  "title": "What is the difference between Socket and RPC? ",
+  "question": "What is the actual difference between Socket and RPC (Remote Procedure Call)?<br>As per my understanding both's working is based on Client�Vserver model. Also which one should be used in which conditions?",
+  "answer": "Short answer:<br>RPC is the protocol. The socket provides access to the transport to implement that protocol.<br>RPC is the service and protocol offered by the operating system to allow code to be triggered for running by a remote application. It has a defined protocol by which procedures or objects can be accessed by another device over a network. An implementation of RPC can be done over basically any network transport (e.g. TCP, UDP, cups with strings).<br>The socket is just a programming abstraction such that the application can send and receive data with another device through a particular network transport. You implement protocols (such as RPC) on top of a transport (such as TCP) with a socket.",
+  "website": "https://stackoverflow.com/questions/46128598/what-is-the-difference-between-socket-and-rpc"
+ },
+ {
+  "number": 13,
+  "title": "Memory mapped IO - how is it done?",
+  "question": "I've read about the difference between port mapped IO and memory mapped IO, but I can't figure out how memory mapped Io is implemented in modern operating systems (windows or linux)<br>What I know is that a part of the physical memory is reserved to communicate with the hardware and there's a MMIO Unit involved in taking care of the bus communication and other memory-related stuff<br>How would a driver communicate with underlying hardware? What are the functions that the driver would use? Are the addresses to communicate with a video card fixed or is there some kind of \"agreement\" before using them?<br>I'm still rather confused",
+  "answer": "Essentially it is just a form of accessing the data, as if you are saving / reading from the memory. But the hardware will snoop on the address bus, and when it sees the address targetting for him, it will just receive the data on the data bus.",
+  "website": "https://stackoverflow.com/questions/9654504/memory-mapped-io-how-is-it-done"
+ },
+ {
+  "number": 14,
+  "title": "what is a tickless OS?",
+  "question": "I've heard the term \"Tickless OS\" thrown around.<br>1.What does it mean?<br>2.Which OSes are tickless?<br>3.How does it differ from a non-tickless (tickful?) OS?",
+  "answer": "A 'tick' in OS terms is an interval after which the OS will wake up to process any pending events.<br>So, if you have a 100Hz tick, then 100 times a second, the OS will wake up, check to see whether any timers have expired, execute their actions if there are, then go to sleep again. On a tick-less system, rather than waking up 100 times a second to see if anything is ready to process, the OS will look at when the next timer is due to expire and then sleep until that time.<br>Note that when the CPU is active, it's obviously not going to go into any kind of sleep mode, and the kernel will set up an interrupt for scheduling purposes. It's only tickless (as the comment points out) when there's nothing running on the CPU or (in very modern Linux kernels) when only one process is running.<br>Linux can run with or without ticks, with a compile-time switch. I don't know about any other systems.",
+  "website": "https://stackoverflow.com/questions/1265020/what-is-a-tickless-os"
+ },
+ {
+  "number": 15,
+  "title": "Memory mapped IO - how is it done?",
+  "question": "I've read about the difference between port mapped IO and memory mapped IO, but I can't figure out how memory mapped Io is implemented in modern operating systems (windows or linux)<br>What I know is that a part of the physical memory is reserved to communicate with the hardware and there's a MMIO Unit involved in taking care of the bus communication and other memory-related stuff<br>How would a driver communicate with underlying hardware? What are the functions that the driver would use? Are the addresses to communicate with a video card fixed or is there some kind of \"agreement\" before using them?<br>I'm still rather confused",
+  "answer": "Essentially it is just a form of accessing the data, as if you are saving or reading from the memory. But the hardware will snoop on the address bus, and when it sees the address targetting for him, it will just receive the data on the data bus.",
+  "website": "https://stackoverflow.com/questions/9654504/memory-mapped-io-how-is-it-done"
+ },
+ {
+  "number": 16,
+  "title": "What is the difference between Shell, Kernel and API",
+  "question": "I want to understand how this applies to an operating system and also to those things that are not infact operating systems. I can't understand the difference between the three and their essence. API is the functions we can call but what is Shell? If we have an API than what exactly is the Kernel of the operating system? I understand the an operating system has a Core that is not going to change and this core does the fundamental Job of a typical OS while we may have different user interfaces like GUI or command line with the same Kernel. So the problem is I am confused how these things are different. Aaaaaaarhg!",
+  "answer": "A command-line interface (CLI) shell is a command interpreter <br> A kernel is a low level program interfacing with the hardware (CPU, RAM, disks, network, ...) on top of which applications are running. <br> An API is a generic term defining the interface developers have to use when writing code using libraries and a programming language.",
+  "website": "https://stackoverflow.com/questions/12132260/what-is-the-difference-between-shell-kernel-and-api"
+ },
+ {
+  "number": 17,
+  "title": "Why are malloc() and printf() said as non-reentrant?",
+  "question": "In UNIX systems we know malloc() is a non-reentrant function (system call). Why is that?<br>Similarly, printf() also is said to be non-reentrant; why?<br>I know the definition of re-entrancy, but I wanted to know why it applies to these functions. What prevents them being guaranteed reentrant?",
+  "answer": "malloc and printf usually use global structures, and employ lock-based synchronization internally. That's why they're not reentrant.<br>The malloc function could either be thread-safe or thread-unsafe. Both are not reentrant:",
+  "website": "https://stackoverflow.com/questions/3941271/why-are-malloc-and-printf-said-as-non-reentrant"
+ },
+ {
+  "number": 18,
+  "title": "What's the difference between page and block in operating system?",
+  "question": "I have learned that in an operating system (Linux), the memory management unit (MMU) can translate a virtual address (VA) to a physical address (PA) via the page table data structure. It seems that page is the smallest data unit that is managed by the VM. But how about the block? Is it also the smallest data unit transfered between the disk and the system memory?",
+  "answer": "A block is the smallest unit of data that an operating system can either write to a file or read from a file. <br> Pages are used by some operating systems instead of blocks. A page is basically a virtual block. And, pages have a fixed size - 4K and 2K are the most commonly used sizes. So, the two key points to remember about pages is that they are virtual blocks and they have fixed sizes.<br>Generally speaking, the hard-disk is one of those devices called \"block-devices\" as opposed to \"character-devices\" because the unit of transferring data is in the block. Even if you want only a single character from a file, the OS and the drive will get you a block and then give you access only to what you asked for while the rest remains in a specific cache \"buffer.",
+  "website": "https://stackoverflow.com/questions/22137555/whats-the-difference-between-page-and-block-in-operating-system"
+ },
+ {
+  "number": 19,
+  "title": "What is a context switch?",
+  "question": "I was reading about the debuggerstepperboundary attribute and a site says it is is useful in a context switch.<br>What exactly is a context switch? I'm assuming it is a switch from one thread to another, or in execution or security context? However, these are not particularly educated guesses so I'm asking here.",
+  "answer": "A context switch (also sometimes referred to as a process switch or a task switch) is the switching of the CPU (central processing unit) from one process or thread to another.",
+  "website": "https://stackoverflow.com/questions/300167/what-is-a-context-switch"
+ },
+ {
+  "number": 20,
+  "title": "What is the difference between the firmware and the operating system?",
+  "question": "In embedded devices such as printer, switches, I am confused what the difference between the firmware and the operating system is. Are embedded devices operating systems similar to PCs (Linux and Windows)?<br>",
+  "answer": "For any device (computer, printer, scanner, digital camera, etc.) to start running, it should have an initial program to run when it is powered up/booted. This initial program is called firmware. It is also called as bootstrap program, also called BIOS. It is mounted in ROM. <br> An operating system is a complete software stack that manages a computer's hardware and sets up an environment for the applications to run.",
+  "website": "https://stackoverflow.com/questions/15702355/what-is-the-difference-between-the-firmware-and-the-operating-system"
+ }
+]

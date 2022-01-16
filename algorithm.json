@@ -1,0 +1,142 @@
+[
+ {
+  "number": 1,
+  "title": "Why is quicksort better than mergesort?",
+  "question": "I was asked this question during an interview. They're both O(nlogn) and yet most people use Quicksort instead of Mergesort. Why is that?",
+  "answer": "Quicksort has O(n2) worst-case runtime and O(nlogn) average case runtime. However, it’s superior to merge sort in many scenarios because many factors influence an algorithm’s runtime, and, when taking them all together, quicksort wins out.",
+  "website": "https://stackoverflow.com/questions/70402/why-is-quicksort-better-than-mergesort"
+ },
+ {
+  "number": 2,
+  "title": "Difference between Big-O and Little-O Notation",
+  "question": "What is the difference between Big-O notation O(n) and Little-O notation o(n)?",
+  "answer": "Big-O is an inclusive upper bound(≦)while little-o is a strict upper bound(＜).",
+  "website": "https://stackoverflow.com/questions/1364444/difference-between-big-o-and-little-o-notation"
+ },
+ {
+  "number": 3,
+  "title": "What is stability in sorting algorithms and why is it important?",
+  "question": "I'm very curious, why stability is or is not important in sorting algorithms?",
+  "answer": "A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted. ",
+  "website": "https://stackoverflow.com/questions/1517793/what-is-stability-in-sorting-algorithms-and-why-is-it-important"
+ },
+ {
+  "number": 4,
+  "title": "What is the difference between tree depth and height?",
+  "question": "This is a simple question from algorithms theory.<br>The difference between them is that in one case you count number of nodes and in other number of edges on the shortest path between root and concrete node.<br>Which is which?",
+  "answer": "<p>The depth of a node is the number of edges from the node to the tree's root node.</p><p>The height of a node is the number of edges on the longest path from the node to a leaf.</p>",
+  "website": "https://stackoverflow.com/questions/2603692/what-is-the-difference-between-tree-depth-and-height"
+ },
+ {
+  "number": 5,
+  "title": "What is a loop invariant?",
+  "question": "I'm reading \"Introduction to Algorithm\" by CLRS. In chapter 2, the authors mention \"loop invariants\". What is a loop invariant?",
+  "answer": "A loop invariant is a condition [among program variables] that is necessarily true immediately before and immediately after each iteration of a loop. (Note that this says nothing about its truth or falsity part way through an iteration.)",
+  "website": "https://stackoverflow.com/questions/3221577/what-is-a-loop-invariant"
+ },
+ {
+  "number": 6,
+  "title": "What is tail call optimization?",
+  "question": "Very simply, what is tail-call optimization?",
+  "answer": "Tail-call optimization is where you are able to avoid allocating a new stack frame for a function because the calling function will simply return the value that it gets from the called function. ",
+  "website": "https://stackoverflow.com/questions/310974/what-is-tail-call-optimization"
+ },
+ {
+  "number": 7,
+  "title": "What is an NP-complete in computer science?",
+  "question": "What is an NP-complete problem? Why is it such an important topic in computer science?",
+  "answer": "In other words:x is in NP, and Every problem in NP is reducible to x",
+  "website": "https://stackoverflow.com/questions/210829/what-is-an-np-complete-in-computer-science"
+ },
+ {
+  "number": 8,
+  "title": "What is dynamic programming? ",
+  "question": "What is dynamic programming?<br>How is it different from recursion, memoization, etc?<br>I have read the wikipedia article on it, but I still don't really understand it.",
+  "answer": "Dynamic programming is when you use past knowledge to make solving a future problem easier.",
+  "website": "https://stackoverflow.com/questions/1065433/what-is-dynamic-programming"
+ },
+ {
+  "number": 9,
+  "title": "How to sort in-place using the merge sort algorithm?",
+  "question": "I know the question is not too specific.<br>All I want is someone to tell me how to convert a normal merge sort into an in-place merge sort (or a merge sort with constant extra space overhead).<br><br>All I can find (on the net) is pages saying \"it is too complex\" or \"out of scope of this text\".<br><br>The only known ways to merge in-place (without any extra space) are too complex to be reduced to practical program. (taken from here)<br><br>Even if it is too complex, what is the basic concept of how to make the merge sort in-place?",
+  "answer": "<br>Including its \"big result\", this paper describes a couple of variants of in-place merge sort (PDF):<br><br>http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.22.5514&rep=rep1&type=pdf<br><br>In-place sorting with fewer moves<br><br>Jyrki Katajainen, Tomi A. Pasanen<br><br>It is shown that an array of n elements can be sorted using O(1) extra space, O(n log n /log log n) element moves, and n log2n + O(n log log n) comparisons. This is the first in-place sorting algorithm requiring o(n log n) moves in the worst case while guaranteeing O(n log n) comparisons, but due to the constant factors involved the algorithm is predominantly of theoretical interest.",
+  "website": "https://stackoverflow.com/questions/2571049/how-to-sort-in-place-using-the-merge-sort-algorithm"
+ },
+ {
+  "number": 10,
+  "title": "What is the difference between LL and LR parsing?",
+  "question": "Can anyone give me a simple example of LL parsing versus LR parsing?",
+  "answer": "An LL parse is a left-to-right, leftmost derivation. That is, we consider the input symbols from the left to the right and attempt to construct a leftmost derivation. This is done by beginning at the start symbol and repeatedly expanding out the leftmost nonterminal until we arrive at the target string. An LR parse is a left-to-right, rightmost derivation, meaning that we scan from the left to right and attempt to construct a rightmost derivation. The parser continuously picks a substring of the input and attempts to reverse it back to a nonterminal.",
+  "website": "https://stackoverflow.com/questions/5975741/what-is-the-difference-between-ll-and-lr-parsing"
+ },
+ {
+  "number": 11,
+  "title": "Which is the fastest algorithm to find prime numbers?",
+  "question": "Which is the fastest algorithm to find out prime numbers using C++? I have used sieve's algorithm but I still want it to be faster!",
+  "answer": "A very fast implementation of the Sieve of Atkin is Dan Bernstein's primegen. This sieve is more efficient than the Sieve of Eratosthenes. ",
+  "website": "https://stackoverflow.com/questions/453793/which-is-the-fastest-algorithm-to-find-prime-numbers"
+ },
+ {
+  "number": 12,
+  "title": "Breadth First Vs Depth First",
+  "question": "When Traversing a Tree/Graph what is the difference between Breadth First and Depth first? Any coding or pseudocode examples would be great.",
+  "answer": "The difference between the two traversal orders lies in the choice of Container.<p>For depth first use a stack. (The recursive implementation uses the call-stack...)</p><p>For breadth-first use a queue.</p>",
+  "website": "https://stackoverflow.com/questions/687731/breadth-first-vs-depth-first"
+ },
+ {
+  "number": 13,
+  "title": "Which sort algorithm works best on mostly sorted data? ",
+  "question": "Which sorting algorithm works best on mostly sorted data?",
+  "answer": "Only a few items => INSERTION SORT , Items are mostly sorted already => INSERTION SORT,Concerned about worst-case scenarios => HEAP SORT , Interested in a good average-case result => QUICKSORT , Items are drawn from a dense universe => BUCKET SORT , Desire to write as little code as possible => INSERTION SORT",
+  "website": "https://stackoverflow.com/questions/220044/which-sort-algorithm-works-best-on-mostly-sorted-data"
+ },
+ {
+  "number": 14,
+  "title": "When is each sorting algorithm used?",
+  "question": "What are the use cases when a particular sorting algorithm is preferred over others - merge sort vs QuickSort vs heapsort vs 'intro sort', etc?<br><br>Is there a recommended guide in using them based on the size, type of data structure, available memory and cache, and CPU performance?",
+  "answer": "Essentially it is just a form of accessing the data, as if you are saving / reading from the memory. But the hardware will snoop on the address bus, and when it sees the address targetting for him, it will just receive the data on the data bus.",
+  "website": "https://stackoverflow.com/questions/1933759/when-is-each-sorting-algorithm-used"
+ },
+ {
+  "number": 15,
+  "title": "Why doesn't Dijkstra's algorithm work for negative weight edges?",
+  "question": "Can somebody tell me why Dijkstra's algorithm for single source shortest path assumes that the edges must be non-negative.<br><br>I am talking about only edges not the negative weight cycles.",
+  "answer": "Compute unit vectors from the angles and take the angle of their average.",
+  "website": "https://stackoverflow.com/questions/491738/how-do-you-calculate-the-average-of-a-set-of-circular-data"
+ },
+ {
+  "number": 16,
+  "title": "What is O(log* N)?",
+  "question": "What is O(log* N) and how is it different from O(log N)?",
+  "answer": "91<br><br>O( log* N ) is \"iterated logarithm\":<br><br>In computer science, the iterated logarithm of n, written log* n (usually read \"log star\"), is the number of times the logarithm function must be iteratively applied before the result is less than or equal to 1.",
+  "website": "https://stackoverflow.com/questions/2387656/what-is-olog-n"
+ },
+ {
+  "number": 17,
+  "title": "What's the difference between backtracking and depth first search?",
+  "question": "What's the difference between backtracking and depth first search?",
+  "answer": "Backtracking is a more general purpose algorithm. Depth-First search is a specific form of backtracking related to searching",
+  "website": "https://stackoverflow.com/questions/1294720/whats-the-difference-between-backtracking-and-depth-first-search"
+ },
+ {
+  "number": 18,
+  "title": "Why is quicksort better than mergesort?",
+  "question": "I was asked this question during an interview. They're both O(nlogn) and yet most people use Quicksort instead of Mergesort. Why is that?",
+  "answer": "Quicksort has O(n2) worst-case runtime and O(nlogn) average case runtime. However, it’s superior to merge sort in many scenarios because many factors influence an algorithm’s runtime, and, when taking them all together, quicksort wins out.",
+  "website": "https://stackoverflow.com/questions/70402/why-is-quicksort-better-than-mergesort"
+ },
+ {
+  "number": 19,
+  "title": "Polynomial time and exponential time",
+  "question": "Could someone explain the difference between polynomial-time, non-polynomial-time, and exponential-time algorithms?",
+  "answer": "O(n^2) falls into the quadratic category, which is a type of polynomial (the special case of the exponent being equal to 2) and better than exponential.",
+  "website": "https://stackoverflow.com/questions/4317414/polynomial-time-and-exponential-time"
+ },
+ {
+  "number": 20,
+  "title": "What's the fastest algorithm for sorting a linked list?",
+  "question": "I'm curious if O(n log n) is the best a linked list can do.",
+  "answer": "This is a nice little paper on this topic. His empirical conclusion is that Treesort is best, followed by Quicksort and Mergesort. Sediment sort, bubble sort, selection sort perform very badly.COMPARATIVE STUDY OF LINKED LIST SORTING ALGORITHMS by Ching-Kuang Shene http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.31.9981",
+  "website": "https://stackoverflow.com/questions/1525117/whats-the-fastest-algorithm-for-sorting-a-linked-list"
+ }
+]
